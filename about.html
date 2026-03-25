@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - TechStore Electronics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header (same as index) -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- About Hero -->
+  <section class="hero">
+    <h1>About TechStore</h1>
+    <p>Your premier destination for cutting-edge electronics since 2010</p>
+  </section>
+
+  <!-- Company Story -->
+  <section class="section">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2>Our Story</h2>
+      <p>Founded in 2010, TechStore has grown from a small electronics shop to the leading retailer of premium gadgets in the region. We specialize in smartphones, laptops, TVs, audio systems, and smart home devices from top brands like Apple, Samsung, LG, Sony, and more.</p>
+      <p>Our mission is simple: bring you the latest technology at the best prices with exceptional customer service.</p>
+    </div>
+  </section>
+
+  <!-- Image Slider -->
+  <section class="section">
+    <h2>Our Journey</h2>
+    <div class="slider">
+      <div class="slide active">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&fit=crop" alt="Store Opening 2010" style="width: 100%; height: 400px; object-fit: cover;">
+        <div style="padding: 1rem; background: rgba(37,99,235,0.9); color: white; text-align: center;">
+          <h3>2010 - Store Opening</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&fit=crop" alt="Expansion 2015" style="width: 100%; height: 400px; object-fit: cover;">
+        <div style="padding: 1rem; background: rgba(37,99,235,0.9); color: white; text-align: center;">
+          <h3>2015 - First Expansion</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&fit=crop" alt="Online Launch 2020" style="width: 100%; height: 400px; object-fit: cover;">
+        <div style="padding: 1rem; background: rgba(37,99,235,0.9); color: white; text-align: center;">
+          <h3>2020 - Online Launch</h3>
+        </div>
+      </div>
+      <button class="slider-nav prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="section">
+    <h2>Meet Our Team</h2>
+    <div class="products-grid">
+      <div class="product-card" style="text-align: center;">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&fit=crop&crop=face" alt="John CEO" class="product-image" style="border-radius: 50%; height: 200px;">
+        <div class="product-info">
+          <h3>John Doe</h3>
+          <p>CEO & Founder</p>
+        </div>
+      </div>
+      <div class="product-card" style="text-align: center;">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&fit=crop&crop=face" alt="Sarah Manager" class="product-image" style="border-radius: 50%; height: 200px;">
+        <div class="product-info">
+          <h3>Sarah Smith</h3>
+          <p>Store Manager</p>
+        </div>
+      </div>
+      <div class="product-card" style="text-align: center;">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&fit=crop&crop=face" alt="Mike Tech" class="product-image" style="border-radius: 50%; height: 200px;">
+        <div class="product-info">
+          <h3>Mike Johnson</h3>
+          <p>Tech Specialist</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same) -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TechStore</h3>
+        <p>Premium electronics since 2010. Quality products, expert service.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <a href="location.html">Store Locations</a>
+        <a href="support.html">Help Center</a>
+        <a href="#">Returns</a>
+        <a href="#">Shipping</a>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div style="display: flex; gap: 1rem;">
+          <i class="fab fa-facebook" style="font-size: 1.5rem; cursor: pointer;"></i>
+          <i class="fab fa-twitter" style="font-size: 1.5rem; cursor: pointer;"></i>
+          <i class="fab fa-instagram" style="font-size: 1.5rem; cursor: pointer;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

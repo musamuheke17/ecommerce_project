@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - TechStore Electronics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="hero">
+    <h1>Get In Touch</h1>
+    <p>We're here to help with all your electronics questions</p>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="section">
+    <h2>Contact Information</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">
+          <i class="fas fa-phone"></i>
+        </div>
+        <h3>Phone Support</h3>
+        <p>(555) 123-4567</p>
+        <p>Mon-Sun 9AM-9PM</p>
+        <button class="btn btn-secondary" onclick="callUs()">Call Now</button>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email</h3>
+        <p>hello@techstore.com</p>
+        <p>Response within 24hrs</p>
+        <a href="mailto:hello@techstore.com" class="btn btn-secondary">Send Email</a>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Chat Support</h3>
+        <p>Live chat available 24/7</p>
+        <p>Average response: 30 seconds</p>
+        <button class="btn btn-secondary" onclick="openChat()">Start Chat</button>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Visit Store</h3>
+        <p>Main Location</p>
+        <p>123 Tech Street<br>City Center, CA 90210</p>
+        <a href="location.html" class="btn">View Locations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="section">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select name="subject" required>
+            <option value="">Choose topic</option>
+            <option value="order">Order Inquiry</option>
+            <option value="support">Technical Support</option>
+            <option value="return">Return/Exchange</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" rows="6" required placeholder="Tell us about your inquiry..."></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Location Map Placeholder -->
+  <section class="section" style="background: #f8fafc;">
+    <h2 style="text-align: center;">Our Locations</h2>
+    <div style="height: 400px; background: #e2e8f0; border-radius: var(--radius); margin: 2rem 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--gray);">
+      🗺️ Interactive Google Maps - Main Store Location
+    </div>
+    <div style="text-align: center;">
+      <a href="location.html" class="btn">View All Locations</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact TechStore</h3>
+        <p>We're always here to help</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+      </div>
+      <div class="footer-section">
+        <h3>Store Hours</h3>
+        <p>Mon-Sun: 10AM - 8PM</p>
+        <p>Support: 24/7</p>
+      </div>
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div style="display: flex; gap: 1rem;">
+          <i class="fab fa-facebook" style="font-size: 1.5rem; cursor: pointer;"></i>
+          <i class="fab fa-twitter" style="font-size: 1.5rem; cursor: pointer;"></i>
+          <i class="fab fa-instagram" style="font-size: 1.5rem; cursor: pointer;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore Contact. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

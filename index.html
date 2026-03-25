@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore - Premium Electronics | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Premium Electronics for Modern Living</h1>
+    <p>Discover the latest smartphones, laptops, TVs, and smart devices at unbeatable prices with fast delivery.</p>
+    <button class="btn" onclick="scrollToProducts()">Shop Now</button>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" id="products">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1632661676712-b1c9559ef4e5?w=400&fit=crop" alt="iPhone 16 Pro" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">iPhone 16 Pro</h3>
+          <div class="product-price">$1,199</div>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&fit=crop" alt="MacBook Pro" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">MacBook Pro 16"</h3>
+          <div class="product-price">$3,499</div>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1579567939583-4add9ba4b9a8?w=400&fit=crop" alt="AirPods Pro" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">AirPods Pro 2</h3>
+          <div class="product-price">$249</div>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1593924313217-84f0e910db10?w=400&fit=crop" alt="Samsung QLED TV" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Samsung QLED 65"</h3>
+          <div class="product-price">$1,499</div>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <section class="section promo-banner">
+    <h2>🔥 Flash Sale - 20% Off All TVs!</h2>
+    <p>Limited time only. Shop now and save big on premium OLED & QLED displays.</p>
+    <button class="btn btn-secondary">View Deals</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TechStore</h3>
+        <p>Your trusted source for premium electronics. Fast delivery, best prices, expert support.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <a href="location.html">Store Locations</a>
+        <a href="support.html">Help Center</a>
+        <a href="#">Returns</a>
+        <a href="#">Shipping Info</a>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+          <i class="fab fa-facebook" style="font-size: 1.5rem; cursor: pointer;"></i>
+          <i class="fab fa-twitter" style="font-size: 1.5rem; cursor: pointer;"></i>
+          <i class="fab fa-instagram" style="font-size: 1.5rem; cursor: pointer;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <div style="background: white; margin: 10% auto; padding: 2rem; border-radius: 12px; max-width: 500px; max-height: 70vh; overflow-y: auto;">
+      <h3>Shopping Cart (<span id="modalCartCount">0</span>)</h3>
+      <div id="cartItems"></div>
+      <div style="margin-top: 1rem; text-align: right;">
+        <button class="btn" onclick="checkout()">Checkout</button>
+        <button class="btn btn-secondary" onclick="closeCart()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

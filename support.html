@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Center - TechStore Electronics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html" class="nav-link active">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Support Hero -->
+  <section class="hero">
+    <h1>Support Center</h1>
+    <p>24/7 help for all your electronics needs</p>
+  </section>
+
+  <!-- Quick Support Options -->
+  <section class="section">
+    <h2>Fast Help</h2>
+    <div class="products-grid">
+      <div class="product-card" onclick="openChat()" style="cursor: pointer;">
+        <div style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3>Live Chat</h3>
+        <p>Average response: 30 seconds</p>
+        <p>Available 24/7</p>
+      </div>
+      <div class="product-card" onclick="callSupport()" style="cursor: pointer;">
+        <div style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;">
+          <i class="fas fa-phone"></i>
+        </div>
+        <h3>Phone Support</h3>
+        <p>(555) 123-4567</p>
+        <p>Mon-Sun 9AM-9PM</p>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 4rem; color: #f59e0b; margin-bottom: 1rem;">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Help Articles</h3>
+        <p>Find answers instantly</p>
+        <input type="text" placeholder="Search support articles..." style="width: 100%; padding: 1rem; border-radius: var(--radius); border: 2px solid var(--border); margin-top: 1rem;">
+      </div>
+      <div class="product-card">
+        <div style="font-size: 4rem; color: #ef4444; margin-bottom: 1rem;">
+          <i class="fas fa-ticket"></i>
+        </div>
+        <h3>Submit Ticket</h3>
+        <p>Create support ticket</p>
+        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">New Ticket</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Issues -->
+  <section class="section">
+    <h2>Most Common Questions</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <h3>How do I track my order?</h3>
+        <p>Go to My Account → Orders. You'll find tracking link and estimated delivery.</p>
+        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Track Order</a>
+      </div>
+      <div class="product-card">
+        <h3>What is your return policy?</h3>
+        <p>30 days free returns on all products. Free return shipping within 14 days.</p>
+        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Start Return</a>
+      </div>
+      <div class="product-card">
+        <h3>My product isn't working</h3>
+        <p>Check troubleshooting guide or contact technical support for replacement.</p>
+        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Tech Support</a>
+      </div>
+      <div class="product-card">
+        <h3>When will my order ship?</h3>
+        <p>In-stock items ship within 24 hours. Custom orders 3-5 business days.</p>
+        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Shipping Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warranty Info -->
+  <section class="section" style="background: #f8fafc;">
+    <h2>Warranty & Protection</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Standard Warranty</h3>
+        <p>1 Year on all products, extendable to 3-5 years</p>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Repair Service</h3>
+        <p>Authorized repair center for Apple, Samsung, LG, Sony</p>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <h3>Replacement</h3>
+        <p>Same-day replacement for defective items</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Contact Form -->
+  <section class="section">
+    <h2>Need More Help?</h2>
+    <div style="max-width: 700px; margin: 0 auto;">
+      <form id="supportForm">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Order Number</label>
+            <input type="text" name="order" placeholder="If applicable">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Issue Type</label>
+          <select name="issue" required>
+            <option value="">Select issue</option>
+            <option value="order">Order Problem</option>
+            <option value="product">Product Defect</option>
+            <option value="delivery">Delivery Issue</option>
+            <option value="account">Account Help</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea name="description" rows="5" required placeholder="Please describe your issue in detail..."></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Submit Support Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TechStore Support</h3>
+        <p>We're here 24/7 to help you</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Help</h3>
+        <a href="#" onclick="openChat()">Live Chat</a>
+        <a href="tel:5551234567">Call Us</a>
+        <a href="mailto:support@techstore.com">Email</a>
+      </div>
+      <div class="footer-section">
+        <h3>Popular Topics</h3>
+        <a href="#">Order Tracking</a>
+        <a href="#">Returns</a>
+        <a href="#">Warranty</a>
+      </div>
+      <div class="footer-section">
+        <h3>Stay Connected</h3>
+        <div style="display: flex; gap: 1rem;">
+          <i class="fab fa-facebook" style="font-size: 1.5rem;"></i>
+          <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
+          <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TechStore Support Center</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

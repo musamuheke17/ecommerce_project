@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promotions & Deals - TechStore Electronics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html" class="nav-link active">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Promo Hero -->
+  <section class="hero" style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white;">
+    <h1>🔥 FLASH SALE LIVE!</h1>
+    <p>Up to 40% OFF - Limited Time Only</p>
+    <div style="font-size: 3rem; margin: 1rem 0;">⏰ Ends in 48 Hours</div>
+    <button class="btn" style="background: #fbbf24; color: #1e293b; font-weight: 700;">SHOP DEALS NOW</button>
+  </section>
+
+  <!-- Current Promotions -->
+  <section class="section">
+    <h2>Hot Deals This Week</h2>
+    <div class="products-grid">
+      <div class="product-card" style="border: 3px solid #ef4444; position: relative;">
+        <div style="position: absolute; top: 1rem; left: 1rem; background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700;">40% OFF</div>
+        <img src="https://images.unsplash.com/photo-1632661676712-b1c9559ef4e5?w=400&fit=crop" alt="iPhone 16 Pro Deal" class="product-image">
+        <div class="product-info">
+          <h3>iPhone 16 Pro</h3>
+          <div style="text-decoration: line-through; color: var(--gray);">$1,599</div>
+          <div class="product-price" style="color: #ef4444; font-size: 1.75rem;">$959</div>
+          <button class="btn" style="width: 100%; background: #ef4444;">Grab Deal</button>
+        </div>
+      </div>
+
+      <div class="product-card" style="border: 3px solid #f59e0b; position: relative;">
+        <div style="position: absolute; top: 1rem; left: 1rem; background: #f59e0b; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700;">25% OFF</div>
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&fit=crop" alt="MacBook Deal" class="product-image">
+        <div class="product-info">
+          <h3>MacBook Pro 16"</h3>
+          <div style="text-decoration: line-through; color: var(--gray);">$3,499</div>
+          <div class="product-price" style="color: #f59e0b;">$2,624</div>
+          <button class="btn" style="width: 100%; background: #f59e0b;">Limited Stock</button>
+        </div>
+      </div>
+
+      <div class="product-card" style="border: 3px solid #10b981; position: relative;">
+        <div style="position: absolute; top: 1rem; left: 1rem; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700;">Bundle Deal</div>
+        <img src="https://images.unsplash.com/photo-1579567939583-4add9ba4b9a8?w=400&fit=crop" alt="AirPods Bundle" class="product-image">
+        <div class="product-info">
+          <h3>AirPods Pro + Case</h3>
+          <div class="product-price" style="color: #10b981;">$199 <span style="font-size: 0.8em; color: var(--gray);">(Save $50)</span></div>
+          <button class="btn" style="width: 100%; background: #10b981;">Buy Bundle</button>
+        </div>
+      </div>
+
+      <div class="product-card" style="border: 3px solid var(--primary); position: relative;">
+        <div style="position: absolute; top: 1rem; left: 1rem; background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700;">30% OFF</div>
+        <img src="https://images.unsplash.com/photo-1593924313217-84f0e910db10?w=400&fit=crop" alt="Samsung TV Deal" class="product-image">
+        <div class="product-info">
+          <h3>Samsung QLED 65"</h3>
+          <div style="text-decoration: line-through; color: var(--gray);">$1,999</div>
+          <div class="product-price" style="color: var(--primary);">$1,399</div>
+          <button class="btn" style="width: 100%; background: var(--primary);">Ends Soon</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown Timer -->
+  <section class="section" style="background: linear-gradient(135deg, #1e293b, #334155); color: white; text-align: center; padding: 4rem 2rem;">
+    <h2>Flash Sale Ends In</h2>
+    <div style="font-size: 3rem; font-weight: 300; margin: 2rem 0;">
+      <span id="countdown-days">02</span>D 
+      <span id="countdown-hours">14</span>H 
+      <span id="countdown-minutes">32</span>M 
+      <span id="countdown-seconds">45</span>S
+    </div>
+    <button class="btn" style="background: #ef4444; color: white; font-size: 1.2rem; padding: 1.25rem 3rem;">SHOP ALL DEALS</button>
+  </section>
+
+  <!-- Category Deals -->
+  <section class="section">
+    <h2>Category Deals</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&fit=crop" alt="Phones" class="product-image">
+        <div class="product-info" style="text-align: center;">
+          <h3>Smartphones</h3>
+          <div style="color: #10b981; font-weight: 700;">Up to $300 OFF</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&fit=crop" alt="Laptops" class="product-image">
+        <div class="product-info" style="text-align: center;">
+          <h3>Laptops</h3>
+          <div style="color: #f59e0b; font-weight: 700;">Student Discounts</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1610945263408-e6159820879e?w=400&fit=crop" alt="TVs" class="product-image">
+        <div class="product-info" style="text-align: center;">
+          <h3>Televisions</h3>
+          <div style="color: var(--primary); font-weight: 700;">Free Installation</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1603500609453-b7e6fddc47ad?w=400&fit=crop" alt="Audio" class="product-image">
+        <div class="product-info" style="text-align: center;">
+          <h3>Audio Gear</h3>
+          <div style="color: #8b5cf6; font-weight: 700;">Bundle Savings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section" style="background: var(--dark); color: white; text-align: center;">
+    <h2>Don't Miss Future Deals!</h2>
+    <p>Subscribe for exclusive offers and new arrivals</p>
+    <div style="max-width: 500px; margin: 2rem auto; display: flex; gap: 1rem;">
+      <input type="email" placeholder="Enter your email" style="flex: 1; padding: 1rem; border-radius: var(--radius); border: none; font-size: 1rem;">
+      <button class="btn" style="background: var(--accent);">Subscribe</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Deal Alerts</h3>
+        <p>Never miss a sale or promotion</p>
+      </div>
+      <div class="footer-section">
+        <h3>Hot Categories</h3>
+        <a href="#">Phones</a>
+        <a href="#">Laptops</a>
+        <a href="#">TVs</a>
+        <a href="#">Audio</a>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <a href="support.html">Help Center</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="#">Track Order</a>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Deals</h3>
+        <div style="display: flex; gap: 1rem;">
+          <i class="fab fa-facebook" style="font-size: 1.5rem;"></i>
+          <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
+          <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore Promotions. Limited time offers.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

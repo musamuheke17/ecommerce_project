@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Locations - TechStore Electronics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html" class="nav-link active">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Location Hero -->
+  <section class="hero">
+    <h1>Find Our Stores</h1>
+    <p>Visit us for hands-on experience and expert advice</p>
+  </section>
+
+  <!-- Store Locator Map -->
+  <section class="section">
+    <div style="position: relative;">
+      <div style="height: 500px; background: linear-gradient(45deg, #2563eb, #7c3aed); border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; margin-bottom: 2rem;">
+        <i class="fas fa-map-marked-alt" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+        <h2>Interactive Store Locator</h2>
+        <p>Find the nearest TechStore location</p>
+        <div style="margin-top: 1rem; font-size: 1.2rem;">
+          📍 Enter ZIP code or city
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Locations -->
+  <section class="section">
+    <h2>Our Store Locations</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div style="height: 200px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="product-info" style="padding: 2rem;">
+          <h3>Main Store - Downtown</h3>
+          <p>123 Tech Street<br>Downtown City, CA 90210</p>
+          <p><i class="fas fa-phone"></i> (555) 123-1001<br><i class="fas fa-clock"></i> Mon-Sun 10AM-9PM</p>
+          <div style="margin-top: 1.5rem;">
+            <button class="btn btn-secondary" style="margin-right: 0.5rem;" onclick="getDirections('main')">Directions</button>
+            <a href="tel:5551231001" class="btn">Call Store</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div style="height: 200px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="product-info" style="padding: 2rem;">
+          <h3>Tech Mall Location</h3>
+          <p>456 Mall Boulevard<br>Tech Mall, CA 90211</p>
+          <p><i class="fas fa-phone"></i> (555) 123-1002<br><i class="fas fa-clock"></i> Mon-Sun 11AM-10PM</p>
+          <div style="margin-top: 1.5rem;">
+            <button class="btn btn-secondary" style="margin-right: 0.5rem;" onclick="getDirections('mall')">Directions</button>
+            <a href="tel:5551231002" class="btn">Call Store</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div style="height: 200px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px 12px 0 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="product-info" style="padding: 2rem;">
+          <h3>Airport Store</h3>
+          <p>789 Airport Road<br>Airport City, CA 90212</p>
+          <p><i class="fas fa-phone"></i> (555) 123-1003<br><i class="fas fa-clock"></i> Daily 9AM-11PM</p>
+          <div style="margin-top: 1.5rem;">
+            <button class="btn btn-secondary" style="margin-right: 0.5rem;" onclick="getDirections('airport')">Directions</button>
+            <a href="tel:5551231003" class="btn">Call Store</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Features -->
+  <section class="section" style="background: #f8fafc;">
+    <h2>What to Expect In-Store</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;">
+          <i class="fas fa-hands-washing"></i>
+        </div>
+        <h3>Clean & Safe</h3>
+        <p>Enhanced cleaning protocols and safety measures</p>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Expert Staff</h3>
+        <p>Trained technicians available for demos and advice</p>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>Hands-On Demos</h3>
+        <p>Test products before you buy</p>
+      </div>
+      <div class="product-card">
+        <div style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;">
+          <i class="fas fa-parking"></i>
+        </div>
+        <h3>Free Parking</h3>
+        <p>Convenient parking at all locations</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align: center;">
+    <h2>Ready to Visit?</h2>
+    <p>Find directions and store hours</p>
+    <div style="margin-top: 2rem;">
+      <input type="text" id="zipSearch" placeholder="Enter ZIP code or city" style="width: 400px; max-width: 100%; padding: 1rem; border-radius: var(--radius); border: 2px solid var(--border); margin-right: 1rem;">
+      <button class="btn" onclick="findNearestStore()">Find Nearest Store</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Visit Us</h3>
+        <p>3 convenient locations open 7 days a week</p>
+      </div>
+      <div class="footer-section">
+        <h3>Store Hours</h3>
+        <p>Mon-Sun: 10AM-9PM</p>
+        <p>Holidays may vary</p>
+      </div>
+      <div class="footer-section">
+        <h3>Get Directions</h3>
+        <a href="#" onclick="getDirections('main')">Main Store</a>
+        <a href="#" onclick="getDirections('mall')">Tech Mall</a>
+        <a href="#" onclick="getDirections('airport')">Airport</a>
+      </div>
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div style="display: flex; gap: 1rem;">
+          <i class="fab fa-facebook" style="font-size: 1.5rem;"></i>
+          <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
+          <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore Locations</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
