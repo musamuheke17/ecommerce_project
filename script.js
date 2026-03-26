@@ -263,14 +263,34 @@ document.querySelectorAll('form').forEach(form => {
   });
 });
 
-// Support page helpers
+// Support page helpers & page-specific interactions
 function scrollToSection(sectionId) {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
 }
 
 function searchArticles(query) {
-  // Simple demo search - highlight matching articles
   console.log('Searching articles for:', query);
   alert('Searching for: ' + query + ' (demo - check console)');
 }
+
+// Contact page functions
+function callUs() {
+  alert('Calling TechStore at (555) 123-4567');
+  window.location.href = 'tel:5551234567';
+}
+
+// Services CTA handlers (for buttons without handlers)
+document.addEventListener('DOMContentLoaded', function() {
+  // Services "Book Service" button
+  const bookBtn = document.querySelector('[onclick*="Book"], button:contains("Book Service")');
+  if (bookBtn && !bookBtn.hasAttribute('onclick')) {
+    bookBtn.onclick = function() { window.location.href = 'contact.html'; };
+  }
+  
+  // Services "Get Quote" button
+  const quoteBtn = document.querySelector('[onclick*="Quote"], button:contains("Get Quote")');
+  if (quoteBtn && !quoteBtn.hasAttribute('onclick')) {
+    quoteBtn.onclick = function() { openChat(); };
+  }
+});
 
