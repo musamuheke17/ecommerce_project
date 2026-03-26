@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - TechStore Electronics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header/Nav same as index -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html" class="nav-link active">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Products Hero -->
+  <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1620797363914-667e9927a21a?w=2000&fit=crop') ; background-size: cover; background-position: center;">
+    <h1>All Products</h1>
+    <p>Browse our full collection of premium electronics, appliances and smart devices</p>
+    <button class="btn" onclick="scrollToProducts()">Browse Products</button>
+  </section>
+
+  <!-- Full Products Grid -->
+  <section class="section" id="products">
+    <h2>Complete Product Catalog</h2>
+    <div class="products-grid">
+      <!-- iPhone 16 Pro -->
+      <div class="product-card" data-product-id="iphone-16-pro">
+        <img src="https://images.unsplash.com/photo-1632661676712-b1c9559ef4e5?w=400&fit=crop" alt="iPhone 16 Pro" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">iPhone 16 Pro</h3>
+          <div class="product-price">$1,199</div>
+          <a href="product-details.html?id=iphone-16-pro" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- MacBook Pro -->
+      <div class="product-card" data-product-id="macbook-pro-16">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&fit=crop" alt="MacBook Pro 16\"" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">MacBook Pro 16"</h3>
+          <div class="product-price">$3,499</div>
+          <a href="product-details.html?id=macbook-pro-16" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- AirPods Pro 2 -->
+      <div class="product-card" data-product-id="airpods-pro-2">
+        <img src="https://images.unsplash.com/photo-1579567939583-4add9ba4b9a8?w=400&fit=crop" alt="AirPods Pro 2" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">AirPods Pro 2</h3>
+          <div class="product-price">$249</div>
+          <a href="product-details.html?id=airpods-pro-2" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- Samsung QLED 65" -->
+      <div class="product-card" data-product-id="samsung-qled-65">
+        <img src="https://images.unsplash.com/photo-1593924313217-84f0e910db10?w=400&fit=crop" alt="Samsung QLED 65\"" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Samsung QLED 65"</h3>
+          <div class="product-price">$1,499</div>
+          <a href="product-details.html?id=samsung-qled-65" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- Additional Appliances/People using -->
+      <div class="product-card" data-product-id="smart-refrigerator">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&fit=crop" alt="Smart Refrigerator" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">LG Smart Refrigerator</h3>
+          <div class="product-price">$2,299</div>
+          <a href="product-details.html?id=smart-refrigerator" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="gaming-laptop">
+        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&fit=crop" alt="Gaming Laptop" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Razer Gaming Laptop</h3>
+          <div class="product-price">$1,799</div>
+          <a href="product-details.html?id=gaming-laptop" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="wireless-earbuds">
+        <img src="https://images.unsplash.com/photo-1613839195427-cc9c2ca597d1?w=400&fit=crop" alt="Wireless Earbuds" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Sony Wireless Earbuds</h3>
+          <div class="product-price">$179</div>
+          <a href="product-details.html?id=wireless-earbuds" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="smart-tv">
+        <img src="https://images.unsplash.com/photo-1592851622857-0f3189a7b2f9?w=400&fit=crop" alt="Smart TV" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Sony Smart TV 55\"</h3>
+          <div class="product-price">$899</div>
+          <a href="product-details.html?id=smart-tv" class="btn">View Details</a>
+          <button class="btn btn-buy-now">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Same footer as index -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TechStore</h3>
+        <p>Premium electronics catalog with expert service</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <a href="support.html">Support</a>
+        <a href="location.html">Locations</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal same -->
+  <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <div style="background: white; margin: 10% auto; padding: 2rem; border-radius: 12px; max-width: 500px; max-height: 70vh; overflow-y: auto;">
+      <h3>Shopping Cart (<span id="modalCartCount">0</span>)</h3>
+      <div id="cartItems"></div>
+      <div style="margin-top: 1rem; text-align: right;">
+        <button class="btn" onclick="checkout()">Checkout</button>
+        <button class="btn btn-secondary" onclick="closeCart()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - TechStore</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">TechStore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="promo.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Product Hero/Details -->
+  <section class="section product-hero">
+    <div class="container">
+      <button class="btn btn-secondary" onclick="history.back()">← Back to Products</button>
+      <div class="product-main">
+        <div class="gallery">
+          <div class="main-image" id="mainImage">
+            <img src="" alt="" id="mainImgSrc">
+          </div>
+          <div class="thumbnail-row" id="thumbnails"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-category" id="productCategory">Electronics</div>
+          <h1 class="product-title" id="productTitle">Product Name</h1>
+          <div class="rating-row">
+            <div class="stars" id="stars">★★★★★</div>
+            <span class="rating-count">(128 reviews)</span>
+          </div>
+          <div class="price" id="productPrice">$0</div>
+          <div class="variant-section">
+            <div class="color-options" id="colorOptions"></div>
+            <div class="quantity-add">
+              <div class="quantity-selector">
+                <button onclick="updateQuantity(-1)">−</button>
+                <input type="number" id="quantity" value="1" min="1">
+                <button onclick="updateQuantity(1)">+</button>
+              </div>
+              <button class="add-to-cart" onclick="buyNow()">
+                <i class="fas fa-shopping-cart"></i> Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Specs -->
+      <div class="detail-section">
+        <h2 class="section-title">Product Specifications</h2>
+        <ul class="feature-list" id="features"></ul>
+      </div>
+
+      <!-- Related Products -->
+      <div class="detail-section">
+        <h2 class="section-title">Related Products</h2>
+        <div class="comparison-grid" id="relatedProducts">
+          <!-- Dynamic related -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer same -->
+  <footer class="footer">
+    <!-- Same as products.html -->
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TechStore</h3>
+        <p>Detailed product information and expert recommendations</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <!-- Same as others -->
+    <div style="background: white; margin: 10% auto; padding: 2rem; border-radius: 12px; max-width: 500px; max-height: 70vh; overflow-y: auto;">
+      <h3>Shopping Cart</h3>
+      <div id="cartItems"></div>
+      <button class="btn" onclick="checkout()">Checkout</button>
+      <button class="btn btn-secondary" onclick="closeCart()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Product data
+    const products = {
+      'iphone-16-pro': {
+        title: 'iPhone 16 Pro',
+        price: 1199,
+        category: 'Smartphones',
+        images: [
+          'https://images.unsplash.com/photo-1632661676712-b1c9559ef4e5?w=600&fit=crop',
+          'https://images.unsplash.com/photo-1599820708469-430c863be7dc?w=300&fit=crop',
+          'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&fit=crop'
+        ],
+        features: [
+          '6.1-inch Super Retina XDR display',
+          'A18 Pro chip with 6-core CPU',
+          '48MP Fusion camera system',
+          'USB-C connector, IP68 water resistant',
+          'Up to 27 hours video playback'
+        ],
+        colors: ['black', 'blue', 'silver'],
+        rating: 4.9
+      },
+      'macbook-pro-16': {
+        title: 'MacBook Pro 16"',
+        price: 3499,
+        category: 'Laptops',
+        images: [
+          'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&fit=crop',
+          'https://images.unsplash.com/photo-1611041351188-4a7a51a7caab?w=300&fit=crop',
+          'https://images.unsplash.com/photo-1582379131353-53e3144a0ecf?w=300&fit=crop'
+        ],
+        features: [
+          '16.2-inch Liquid Retina XDR display',
+          'M3 Max chip, 16-core CPU, 40-core GPU',
+          '22 hours battery life',
+          '1080p FaceTime HD camera',
+          'ProRes acceleration'
+        ],
+        colors: ['space-gray', 'silver'],
+        rating: 4.8
+      },
+      // Add more for airpods-pro-2, samsung-qled-65, smart-refrigerator, gaming-laptop, wireless-earbuds, smart-tv
+      'airpods-pro-2': {
+        title: 'AirPods Pro 2',
+        price: 249,
+        category: 'Audio',
+        images: [
+          'https://images.unsplash.com/photo-1579567939583-4add9ba4b9a8?w=600&fit=crop',
+          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&fit=crop&amp;crop=face',
+          'https://images.unsplash.com/photo-1616364834176-c21b0fa29379?w=300&amp;fit=crop'
+        ],
+        features: [
+          'H2 chip with advanced audio',
+          'Up to 6 hours listening time with ANC',
+          '30 hours total with case',
+          'IP54 dust/sweat/water resistant',
+          'Spatial Audio with head tracking'
+        ],
+        colors: ['white'],
+        rating: 4.7
+      },
+      'samsung-qled-65': {
+        title: 'Samsung QLED 65"',
+        price: 1499,
+        category: 'Televisions',
+        images: [
+          'https://images.unsplash.com/photo-1593924313217-84f0e910db10?w=600&fit=crop',
+          'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&fit=crop',
+          'https://images.unsplash.com/photo-1610945262588-afa2015be576?w=300&fit=crop'
+        ],
+        features: [
+          '65-inch QLED 4K UHD display',
+          'Quantum HDR 2000',
+          'Neo Quantum Processor 4K',
+          'Dolby Atmos sound',
+          'Smart TV with Tizen OS'
+        ],
+        colors: ['titan-gray'],
+        rating: 4.6
+      }
+      // ... add others similarly if needed
+    };
+
+    let currentProduct = null;
+    let quantity = 1;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      if (productId && products[productId]) {
+        currentProduct = products[productId];
+        loadProduct(currentProduct);
+      } else {
+        document.body.innerHTML = '<h1>Product not found</h1>';
+      }
+      updateCartCount();
+    });
+
+    function loadProduct(product) {
+      document.getElementById('productTitle').textContent = product.title;
+      document.getElementById('productPrice').textContent = '$' + product.price.toLocaleString();
+      document.getElementById('productCategory').textContent = product.category;
+
+      // Main image
+      document.getElementById('mainImgSrc').src = product.images[0];
+      document.getElementById('mainImage').onclick = () => openGallery(product.images);
+
+      // Thumbnails
+      const thumbsContainer = document.getElementById('thumbnails');
+      thumbsContainer.innerHTML = '';
+      product.images.forEach((img, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
+        thumb.innerHTML = `<img src="${img}" alt="${product.title}">`;
+        thumb.onclick = () => {
+          document.getElementById('mainImgSrc').src = img;
+          document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        };
+        thumbsContainer.appendChild(thumb);
+      });
+
+      // Features
+      const featuresContainer = document.getElementById('features');
+      featuresContainer.innerHTML = '';
+      product.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
+        featuresContainer.appendChild(li);
+      });
+
+      // Colors (simple)
+      const colorsContainer = document.getElementById('colorOptions');
+      colorsContainer.innerHTML = '';
+      product.colors.forEach(color => {
+        const dot = document.createElement('div');
+        dot.className = `color-dot ${color}`;
+        dot.onclick = () => {
+          colorsContainer.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+          dot.classList.add('active');
+        };
+        colorsContainer.appendChild(dot);
+      });
+    }
+
+    function buyNow() {
+      if (currentProduct) {
+        const productWithQty = { ...currentProduct, quantity: parseInt(document.getElementById('quantity').value) };
+        addToCart(productWithQty);
+        alert('Added to cart! Redirecting to checkout.');
+        window.location.href = 'products.html';
+      }
+    }
+
+    function updateQuantity(change) {
+      quantity = parseInt(document.getElementById('quantity').value) + change;
+      quantity = Math.max(1, quantity);
+      document.getElementById('quantity').value = quantity;
+    }
+
+    function openGallery(images) {
+      // Simple alert for demo, could be modal
+      alert('Gallery view: ' + images.join(', '));
+    }
+
+    // Expose global functions for onclick
+    window.buyNow = buyNow;
+    window.updateQuantity = updateQuantity;
+  </script>
+
+  <style>
+    /* Basic styles for new elements, extend style.css */
+    .product-hero { padding: 2rem 0; max-width: 1400px; margin: 0 auto; }
+    .product-main { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 2rem 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    @media (max-width: 768px) { .product-main { grid-template-columns: 1fr; gap: 2rem; } }
+    /* Add more from style_new.css patterns if needed */
+  </style>
+</body>
+</html>
+

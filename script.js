@@ -21,9 +21,46 @@ document.addEventListener('DOMContentLoaded', function() {
   setupAdmin();
 });
 
-// Navigation smooth scrolling
+// Navigation smooth scrolling / smart navigation
 function scrollToProducts() {
-  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  if (currentPage === 'products.html') {
+    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.location.href = 'products.html';
+  }
+}
+
+// Support functions
+function openChat() {
+  // Create/show chat modal
+  let chatModal = document.getElementById('chatModal');
+  if (!chatModal) {
+    chatModal = document.createElement('div');
+    chatModal.id = 'chatModal';
+    chatModal.style.cssText = 'display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; align-items: center; justify-content: center;';
+    chatModal.innerHTML = `
+      <div style="background: white; padding: 2rem; border-radius: 12px; max-width: 500px; max-height: 80vh; overflow-y: auto;">
+        <h3>Live Chat <span onclick="closeChat()" style="float: right; cursor: pointer; font-size: 1.5rem;">&times;</span></h3>
+        <div style="height: 300px; border: 1px solid #e2e8f0; margin: 1rem 0; padding: 1rem; overflow-y: auto; background: #f8fafc;">Chat history here...</div>
+        <input type="text" placeholder="Type your message..." style="width: 70%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+        <button class="btn" style="width: 28%; margin-left: 2%;">Send</button>
+      </div>
+    `;
+    document.body.appendChild(chatModal);
+  }
+  chatModal.style.display = 'flex';
+  window.closeChat = closeChat;
+}
+
+function closeChat() {
+  const chatModal = document.getElementById('chatModal');
+  if (chatModal) chatModal.remove();
+}
+
+function callSupport() {
+  alert('Calling TechStore Support at (555) 123-4567');
+  window.location.href = 'tel:5551234567';
 }
 
 // Cart Functions
@@ -150,12 +187,19 @@ function saveSettings() {
   alert(`Settings saved! Website Name: ${websiteName}`);
 }
 
-// Product Add to Cart Buttons
-document.querySelectorAll('.product-card .btn').forEach(btn => {
+// Prevent btn clicks from card click
+document.querySelectorAll('.product-card .btn, .product-card .btn-buy-now').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+});
+
+// Add to Cart buttons
+document.querySelectorAll('.product-card .btn:not(.btn-buy-now)').forEach(btn => {
   btn.addEventListener('click', function() {
     const card = this.closest('.product-card');
     const product = {
-      id: card.querySelector('.product-title').textContent.toLowerCase().replace(/\s+/g, '-'),
+      id: card.dataset.productId || card.querySelector('.product-title').textContent.toLowerCase().replace(/\s+/g, '-'),
       name: card.querySelector('.product-title').textContent,
       price: parseFloat(card.querySelector('.product-price').textContent.replace('$', '')),
       image: card.querySelector('.product-image').src
@@ -164,7 +208,53 @@ document.querySelectorAll('.product-card .btn').forEach(btn => {
   });
 });
 
-// Form Submissions
+// Buy Now buttons
+document.querySelectorAll('.btn-buy-now').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.product-card');
+    const product = {
+      id: card.dataset.productId || card.querySelector('.product-title').textContent.toLowerCase().replace(/\s+/g, '-'),
+      name: card.querySelector('.product-title').textContent,
+      price: parseFloat(card.querySelector('.product-price').textContent.replace('$', '')),
+      image: card.querySelector('.product-image').src
+    };
+    addToCart(product);
+    const detailsUrl = 'product-details.html?id=' + product.id;
+    window.location.href = detailsUrl;
+  });
+});
+
+// Product card click to details
+document.querySelectorAll('.product-card').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function(e) {
+    if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
+      const productId = this.dataset.productId || this.querySelector('.product-title').textContent.toLowerCase().replace(/\s+/g, '-');
+      window.location.href = 'product-details.html?id=' + productId;
+    }
+  });
+});
+
+// Buy Now buttons
+document.querySelectorAll('.btn-buy-now').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const card = this.closest('.product-card');
+    const product = {
+      id: card.dataset.productId || card.querySelector('.product-title').textContent.toLowerCase().replace(/\s+/g, '-'),
+      name: card.querySelector('.product-title').textContent,
+      price: parseFloat(card.querySelector('.product-price').textContent.replace('$', '')),
+      image: card.querySelector('.product-image').src
+    };
+    addToCart(product);
+    setTimeout(() => {
+      const detailsUrl = 'product-details.html?id=' + product.id;
+      window.location.href = detailsUrl;
+    }, 200);
+  });
+});
+
+// Form Submissions & Support helpers
 document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -172,4 +262,15 @@ document.querySelectorAll('form').forEach(form => {
     this.reset();
   });
 });
+
+// Support page helpers
+function scrollToSection(sectionId) {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+function searchArticles(query) {
+  // Simple demo search - highlight matching articles
+  console.log('Searching articles for:', query);
+  alert('Searching for: ' + query + ' (demo - check console)');
+}
 

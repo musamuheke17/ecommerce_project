@@ -15,6 +15,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="promo.html">Promotions</a></li>
@@ -29,7 +30,7 @@
   </header>
 
   <!-- Support Hero -->
-  <section class="hero">
+<section class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;">
     <h1>Support Center</h1>
     <p>24/7 help for all your electronics needs</p>
   </section>
@@ -54,13 +55,13 @@
         <p>(555) 123-4567</p>
         <p>Mon-Sun 9AM-9PM</p>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="scrollToSection('common-issues')" style="cursor: pointer;">
         <div style="font-size: 4rem; color: #f59e0b; margin-bottom: 1rem;">
           <i class="fas fa-search"></i>
         </div>
         <h3>Help Articles</h3>
         <p>Find answers instantly</p>
-        <input type="text" placeholder="Search support articles..." style="width: 100%; padding: 1rem; border-radius: var(--radius); border: 2px solid var(--border); margin-top: 1rem;">
+        <input type="text" placeholder="Search support articles..." style="width: 100%; padding: 1rem; border-radius: var(--radius); border: 2px solid var(--border); margin-top: 1rem;" onkeyup="searchArticles(this.value)">
       </div>
       <div class="product-card">
         <div style="font-size: 4rem; color: #ef4444; margin-bottom: 1rem;">
@@ -68,13 +69,13 @@
         </div>
         <h3>Submit Ticket</h3>
         <p>Create support ticket</p>
-        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">New Ticket</button>
+        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="scrollToSection('support-form')">New Ticket</button>
       </div>
     </div>
   </section>
 
   <!-- Common Issues -->
-  <section class="section">
+  <section class="section" id="common-issues">
     <h2>Most Common Questions</h2>
     <div class="products-grid">
       <div class="product-card">
@@ -129,7 +130,7 @@
   </section>
 
   <!-- Support Contact Form -->
-  <section class="section">
+  <section class="section" id="support-form">
     <h2>Need More Help?</h2>
     <div style="max-width: 700px; margin: 0 auto;">
       <form id="supportForm">

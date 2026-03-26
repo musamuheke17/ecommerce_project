@@ -87,10 +87,26 @@ body {
 
 /* Hero Section */
 .hero {
-  max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 2rem;
+  min-height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  }
 }
 
 .hero h1 {
@@ -237,6 +253,29 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s;
+}
+
+.btn-buy-now {
+  background: var(--accent);
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.btn-buy-now:hover {
+  background: #059669;
+}
+
+.product-card {
+  cursor: pointer;
+}
+
+.product-card {
+  cursor: pointer;
+}
+
+.product-info {
+  padding: 1.5rem;
+  position: relative;
 }
 
 .btn:hover {
